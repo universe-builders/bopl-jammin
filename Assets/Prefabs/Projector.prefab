@@ -131,7 +131,7 @@ MonoBehaviour:
     color: {r: 1, g: 1, b: 1, a: 1}
     size: 1
     percent: 0.6394776694568587
-  _mode: 0
+  _mode: 1
   _autoProject: 1
   _subdivide: 8
   _projectTarget: {fileID: 757533183393764027}

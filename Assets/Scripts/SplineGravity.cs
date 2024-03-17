@@ -33,6 +33,7 @@ public class SplineGravity : MonoBehaviour
             SplineProjector projector = projectorGO.GetComponent<SplineProjector>();
             projector.projectTarget = transform;
             projector.spline = spline;
+            projector.transform.position = transform.position;
             projectors.Add(projector);
         }
     }
