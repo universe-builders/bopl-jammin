@@ -48,6 +48,17 @@ public class SplineGravity : MonoBehaviour
             Vector2 directionForwardOnNearestGround = DirectionForwardOnNearestGround();
             Debug.DrawRay(transform.position, directionForwardOnNearestGround, directionForwardOnNearestGroundColor);
         }
+
+        /*
+        rb.gravityScale = 0.0f;
+        SplineProjector nearestGroundProjector = NearestGround();
+        Vector2 nearestGroundPos = nearestGroundProjector.result.position;
+        Vector2 groundUp = -nearestGroundProjector.result.right;
+        groundUp.Normalize();
+        float radius = GetComponent<CircleCollider2D>().radius / 2;
+
+        transform.position = nearestGroundPos + (groundUp * radius);
+        */
     }
 
     public SplineProjector NearestGround()
@@ -56,6 +67,7 @@ public class SplineGravity : MonoBehaviour
         float minimumDistanceToGround = float.MaxValue;
         foreach (SplineProjector projector in projectors)
         {
+            if (projector.spline == null) continue;
             Vector3 toGround = (projector.result.position - transform.position);
             float distanceToGround = toGround.magnitude;
             if (distanceToGround < minimumDistanceToGround)
@@ -109,11 +121,11 @@ public class SplineGravity : MonoBehaviour
     void LateUpdate()
     {
         rb.gravityScale = 0.0f;
-
         // Apply Gravity towards terrain.
         Vector2 down = DirectionToNearestGround();
         down.Normalize();
         Vector2 downForce = down * power;
         rb.AddForce(downForce * Time.deltaTime);
+        
     }
 }

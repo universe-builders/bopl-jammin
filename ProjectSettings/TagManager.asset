@@ -11,6 +11,8 @@ TagManager:
   - PlayerSpawn
   - DeathZone
   - Spawner
+  - TerrainBorder
+  - UnsentientSlime
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - UI
   - Terrain
   - Slime
-  - 
-  - 
+  - TerrainBorder
+  - UnsentientSlime
   - 
   - 
   - 
